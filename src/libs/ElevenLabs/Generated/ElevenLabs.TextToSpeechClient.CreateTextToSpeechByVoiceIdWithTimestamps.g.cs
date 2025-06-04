@@ -64,7 +64,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AudioWithTimestampsResponseModel> CreateTextToSpeechByVoiceIdWithTimestampsAsync(
+        public async global::System.Threading.Tasks.Task<(global::ElevenLabs.AudioWithTimestampsResponseModel, string?)> CreateTextToSpeechByVoiceIdWithTimestampsAsync(
             string voiceId,
             global::ElevenLabs.BodyTextToSpeechWithTimestampsV1TextToSpeechVoiceIdWithTimestampsPost request,
             bool? enableLogging = default,
@@ -220,9 +220,11 @@ namespace ElevenLabs
                     };
                 }
 
-                return
-                    global::ElevenLabs.AudioWithTimestampsResponseModel.FromJson(__content, JsonSerializerContext) ??
+                var result = global::ElevenLabs.AudioWithTimestampsResponseModel.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+
+                var requestId = __response.Headers.TryGetValues("request-id", out var __values) ? __values.FirstOrDefault() : null;
+                return (result, requestId);
             }
             else
             {
@@ -250,9 +252,11 @@ namespace ElevenLabs
 #endif
                 ).ConfigureAwait(false);
 
-                return
-                    await global::ElevenLabs.AudioWithTimestampsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                var result = await global::ElevenLabs.AudioWithTimestampsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
+
+                var requestId = __response.Headers.TryGetValues("request-id", out var __values) ? __values.FirstOrDefault() : null;
+                return (result, requestId);
             }
         }
 
@@ -332,7 +336,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AudioWithTimestampsResponseModel> CreateTextToSpeechByVoiceIdWithTimestampsAsync(
+        public async global::System.Threading.Tasks.Task<(global::ElevenLabs.AudioWithTimestampsResponseModel, string?)> CreateTextToSpeechByVoiceIdWithTimestampsAsync(
             string voiceId,
             string text,
             bool? enableLogging = default,
