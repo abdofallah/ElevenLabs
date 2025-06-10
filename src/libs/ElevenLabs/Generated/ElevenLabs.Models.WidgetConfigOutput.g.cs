@@ -202,7 +202,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Whether the user should be able to send text messages<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_input_enabled")]
         public bool? TextInputEnabled { get; set; }
@@ -214,6 +214,12 @@ namespace ElevenLabs
         public global::ElevenLabs.WidgetTextContents? TextContents { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("styles")]
+        public global::ElevenLabs.WidgetStyles? Styles { get; set; }
+
+        /// <summary>
         /// Whether to show the language selector<br/>
         /// Default Value: false
         /// </summary>
@@ -222,7 +228,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Whether the widget can switch to text only mode<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("supports_text_only")]
         public bool? SupportsTextOnly { get; set; }
@@ -340,16 +346,17 @@ namespace ElevenLabs
         /// </param>
         /// <param name="textInputEnabled">
         /// Whether the user should be able to send text messages<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
         /// <param name="textContents"></param>
+        /// <param name="styles"></param>
         /// <param name="languageSelector">
         /// Whether to show the language selector<br/>
         /// Default Value: false
         /// </param>
         /// <param name="supportsTextOnly">
         /// Whether the widget can switch to text only mode<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
         /// <param name="customAvatarPath">
         /// The custom avatar path
@@ -392,6 +399,7 @@ namespace ElevenLabs
             bool? transcriptEnabled,
             bool? textInputEnabled,
             global::ElevenLabs.WidgetTextContents? textContents,
+            global::ElevenLabs.WidgetStyles? styles,
             bool? languageSelector,
             bool? supportsTextOnly,
             string? customAvatarPath,
@@ -428,6 +436,7 @@ namespace ElevenLabs
             this.TranscriptEnabled = transcriptEnabled;
             this.TextInputEnabled = textInputEnabled;
             this.TextContents = textContents;
+            this.Styles = styles;
             this.LanguageSelector = languageSelector;
             this.SupportsTextOnly = supportsTextOnly;
             this.CustomAvatarPath = customAvatarPath;

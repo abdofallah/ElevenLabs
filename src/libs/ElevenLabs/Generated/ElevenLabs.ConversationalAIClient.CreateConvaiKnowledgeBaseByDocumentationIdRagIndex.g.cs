@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.RAGIndexResponseModel> CreateConvaiKnowledgeBaseByDocumentationIdRagIndexAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.RAGDocumentIndexResponseModel> CreateConvaiKnowledgeBaseByDocumentationIdRagIndexAsync(
             string documentationId,
             global::ElevenLabs.RAGIndexRequestModel request,
             string? xiApiKey = default,
@@ -55,7 +55,7 @@ namespace ElevenLabs
                 xiApiKey: ref xiApiKey,
                 request: request);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::ElevenLabs.PathBuilder(
                 path: $"/v1/convai/knowledge-base/{documentationId}/rag-index",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
@@ -182,7 +182,7 @@ namespace ElevenLabs
                 }
 
                 return
-                    global::ElevenLabs.RAGIndexResponseModel.FromJson(__content, JsonSerializerContext) ??
+                    global::ElevenLabs.RAGDocumentIndexResponseModel.FromJson(__content, JsonSerializerContext) ??
                     throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
             }
             else
@@ -212,7 +212,7 @@ namespace ElevenLabs
                 ).ConfigureAwait(false);
 
                 return
-                    await global::ElevenLabs.RAGIndexResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                    await global::ElevenLabs.RAGDocumentIndexResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                     throw new global::System.InvalidOperationException("Response deserialization failed.");
             }
         }
@@ -231,7 +231,7 @@ namespace ElevenLabs
         /// <param name="model"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.RAGIndexResponseModel> CreateConvaiKnowledgeBaseByDocumentationIdRagIndexAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.RAGDocumentIndexResponseModel> CreateConvaiKnowledgeBaseByDocumentationIdRagIndexAsync(
             string documentationId,
             global::ElevenLabs.EmbeddingModelEnum model,
             string? xiApiKey = default,

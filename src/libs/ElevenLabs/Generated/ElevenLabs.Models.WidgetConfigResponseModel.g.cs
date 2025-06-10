@@ -202,7 +202,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Whether the user should be able to send text messages<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_input_enabled")]
         public bool? TextInputEnabled { get; set; }
@@ -212,6 +212,12 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_contents")]
         public global::ElevenLabs.WidgetTextContents? TextContents { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("styles")]
+        public global::ElevenLabs.WidgetStyles? Styles { get; set; }
 
         /// <summary>
         /// 
@@ -353,9 +359,10 @@ namespace ElevenLabs
         /// </param>
         /// <param name="textInputEnabled">
         /// Whether the user should be able to send text messages<br/>
-        /// Default Value: false
+        /// Default Value: true
         /// </param>
         /// <param name="textContents"></param>
+        /// <param name="styles"></param>
         /// <param name="language"></param>
         /// <param name="supportedLanguageOverrides"></param>
         /// <param name="languagePresets">
@@ -406,6 +413,7 @@ namespace ElevenLabs
             bool? transcriptEnabled,
             bool? textInputEnabled,
             global::ElevenLabs.WidgetTextContents? textContents,
+            global::ElevenLabs.WidgetStyles? styles,
             global::System.Collections.Generic.IList<string>? supportedLanguageOverrides,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WidgetLanguagePresetResponse>? languagePresets,
             bool? textOnly,
@@ -444,6 +452,7 @@ namespace ElevenLabs
             this.TranscriptEnabled = transcriptEnabled;
             this.TextInputEnabled = textInputEnabled;
             this.TextContents = textContents;
+            this.Styles = styles;
             this.SupportedLanguageOverrides = supportedLanguageOverrides;
             this.LanguagePresets = languagePresets;
             this.TextOnly = textOnly;
